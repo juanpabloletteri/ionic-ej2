@@ -25,15 +25,28 @@ export class HomePage {
       for (var i = 0; i < 5; i++) {
         if (element[i].nombre == this.usuario && element[i].clave == this.pass) {
           //SE ENCONTRO USUARIO
-          let alert = this.alertCtrl.create({
-            title: 'Bienvenido: ' + this.usuario,
-            buttons: ['OK']
+          let confirm = this.alertCtrl.create({
+            title: 'Mensaje:',
+            message: 'Entre aqui bajo su propio riesgo...',
+            buttons: [
+              {
+                text: 'Cancelar',
+                handler: () => {
+                  //return;
+                }
+              },
+              {
+                text: 'Aceptar',
+                handler: () => {
+                  this.navCtrl.push(AplicacionPage, { "usuario": this.usuario, "email": this.email });
+                }
+              }
+            ]
           });
-          alert.present();
-          //Redirijo a la pagina correspondiente
-          this.navCtrl.push(AplicacionPage, { "usuario": this.usuario, "email": this.email });
+          confirm.present();
           return;
         }
+        
       }
       //NO SE ENCONTRO USUARIO
       let alert = this.alertCtrl.create({
@@ -42,6 +55,9 @@ export class HomePage {
         buttons: ['OK']
       });
       alert.present();
+      this.usuario = "";
+      this.email = "";
+      this.pass = "";
     })
     /*VERIFICACION FICTICIA
     if (this.usuario == "admin" && this.pass == "admin") {
