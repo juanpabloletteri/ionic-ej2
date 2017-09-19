@@ -16,7 +16,12 @@ import { HomePage } from '../home/home';
 })
 export class AulaBPage {
 
+  usuario: string;
+  email: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.usuario = this.navParams.get('usuario');
+    this.email = this.navParams.get('email');
   }
 
   salir() {
