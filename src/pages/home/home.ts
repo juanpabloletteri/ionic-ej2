@@ -49,7 +49,7 @@ export class HomePage {
           alert.addButton({
             text: 'OK',
             handler: data => {
-              if (data.va == 'a') {
+              if (data == 'a') {
                 this.navCtrl.push(AulaAPage, { "usuario": this.usuario, "email": this.email });
               }
               else {
