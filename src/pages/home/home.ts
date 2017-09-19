@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { AplicacionPage } from '../aplicacion/aplicacion';
+import { AulaAPage } from '../aula-a/aula-a';
+import { AulaBPage } from '../aula-b/aula-b';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -16,6 +17,9 @@ export class HomePage {
 
   usuarios: FirebaseListObservable<any>;
 
+  testRadioOpen: boolean;
+  testRadioResult;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, ) {
     this.usuarios = db.list('/usuarios');
     console.log(this.usuarios);
@@ -25,28 +29,43 @@ export class HomePage {
       for (var i = 0; i < 5; i++) {
         if (element[i].nombre == this.usuario && element[i].clave == this.pass) {
           //SE ENCONTRO USUARIO
-          let confirm = this.alertCtrl.create({
-            title: 'Mensaje:',
-            message: 'Entre aqui bajo su propio riesgo...',
-            buttons: [
-              {
-                text: 'Cancelar',
-                handler: () => {
-                  //return;
-                }
-              },
-              {
-                text: 'Aceptar',
-                handler: () => {
-                  this.navCtrl.push(AplicacionPage, { "usuario": this.usuario, "email": this.email });
-                }
-              }
-            ]
+          let alert = this.alertCtrl.create();
+          alert.setTitle('Eleccion de aula');
+
+          alert.addInput({
+            type: 'radio',
+            label: 'PPS-4A',
+            value: 'a',
+            checked: true
           });
-          confirm.present();
+
+          alert.addInput({
+            type: 'radio',
+            label: 'PPS-4B',
+            value: 'b',
+          });
+
+          alert.addButton('Cancelar');
+          alert.addButton({
+            text: 'OK',
+            handler: data => {
+              if (data.va == 'a') {
+                this.navCtrl.push(AulaAPage, { "usuario": this.usuario, "email": this.email });
+              }
+              else {
+                this.navCtrl.push(AulaBPage, { "usuario": this.usuario, "email": this.email });
+              }
+              console.log('Radio data:', data);
+              this.testRadioOpen = false;
+              this.testRadioResult = data;
+            }
+          });
+          alert.present().then(() => {
+            this.testRadioOpen = true;
+          });
           return;
         }
-        
+
       }
       //NO SE ENCONTRO USUARIO
       let alert = this.alertCtrl.create({

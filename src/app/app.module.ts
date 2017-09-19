@@ -5,7 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
-import { AplicacionPage } from '../pages/aplicacion/aplicacion';
+import { AulaAPage } from '../pages/aula-a/aula-a';
+import { AulaBPage } from '../pages/aula-b/aula-b';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     AboutPage,
-    AplicacionPage
+    AulaAPage,
+    AulaBPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     AboutPage,
-    AplicacionPage
+    AulaAPage,
+    AulaBPage
   ],
   providers: [
     StatusBar,
