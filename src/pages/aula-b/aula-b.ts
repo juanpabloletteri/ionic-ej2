@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -23,22 +23,48 @@ export class AulaBPage {
   mensaje: string;
   mensajes: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
     this.usuario = this.navParams.get('usuario');
     this.email = this.navParams.get('email');
 
     this.mensajes = db.list('/mensajesB');
   }
+
   enviarMensaje() {
     this.mensajes.push({ usuario: this.usuario, mens: this.mensaje });
     this.mensaje = "";
   }
+
+  menu(id, mens) {
+    console.log(id + mens);
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Desea borrar el mensaje? ' + mens,
+      buttons: [
+        {
+          text: 'Borrar',
+          role: 'destructive',
+          handler: () => {
+            this.mensajes.remove(id);
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
   salir() {
     this.navCtrl.push(HomePage);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AulaBPage');
+    console.log('ionViewDidLoad AulaAPage');
   }
 
 }

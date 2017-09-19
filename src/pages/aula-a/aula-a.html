@@ -17,8 +17,8 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let mens of mensajes | async">
-      {{mens.usuario}}: {{mens.mens}}<br>
+    <ion-item *ngFor="let aux of mensajes | async"  (click)="menu(aux.$key, aux.mens)">
+      {{aux.usuario}}: {{aux.mens}}<br>
     </ion-item>
   </ion-list>
 
