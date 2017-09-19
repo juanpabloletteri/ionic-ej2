@@ -15,18 +15,18 @@
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label floating>Mensaje</ion-label>
-    <ion-input type="text" [(ngModel)]="mensaje"></ion-input>
-  </ion-item>
-  <br>
-  <button ion-button color="secondary" round (click)="enviarMensaje()">Enviar Mensaje</button>
-
 
   <ion-list>
     <ion-item *ngFor="let mens of mensajes | async">
-      {{mens.$key}} {{mens.mens}} {{mens.usuario}}<br>
+      {{mens.usuario}}: {{mens.mens}}<br>
     </ion-item>
   </ion-list>
+
+  <ion-item>
+    <ion-label floating>Mensaje</ion-label>
+    <ion-input type="text" maxlength="66" [(ngModel)]="mensaje"></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button color="secondary" round (click)="enviarMensaje()">Enviar Mensaje</button>
 
 </ion-content>

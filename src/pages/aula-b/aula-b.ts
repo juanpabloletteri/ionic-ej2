@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 /**
  * Generated class for the AulaBPage page.
  *
@@ -19,11 +20,19 @@ export class AulaBPage {
   usuario: string;
   email: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mensaje: string;
+  mensajes: FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase) {
     this.usuario = this.navParams.get('usuario');
     this.email = this.navParams.get('email');
-  }
 
+    this.mensajes = db.list('/mensajesB');
+  }
+  enviarMensaje() {
+    this.mensajes.push({ usuario: this.usuario, mens: this.mensaje });
+    this.mensaje = "";
+  }
   salir() {
     this.navCtrl.push(HomePage);
   }

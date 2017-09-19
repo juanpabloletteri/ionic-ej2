@@ -27,11 +27,11 @@ export class AulaAPage {
     this.usuario = this.navParams.get('usuario');
     this.email = this.navParams.get('email');
 
-    this.mensajes = db.list('/mensajes');
+    this.mensajes = db.list('/mensajesA');
   }
 
   enviarMensaje() {
-    this.mensajes.push({usuario:this.usuario, mens: this.mensaje });
+    this.mensajes.push({ usuario: this.usuario, mens: this.mensaje });
     this.mensaje = "";
   }
 
