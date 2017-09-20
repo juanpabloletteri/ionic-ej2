@@ -15,6 +15,11 @@ export class HomePage {
   email: string;
   pass: string;
 
+  pass1: string;
+  pass2: string;
+
+  esUsuario: boolean = true;
+
   usuarios: FirebaseListObservable<any>;
 
   testRadioOpen: boolean;
