@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { AulaAPage } from '../aula-a/aula-a';
 import { AulaBPage } from '../aula-b/aula-b';
 
@@ -20,7 +20,7 @@ export class HomePage {
   testRadioOpen: boolean;
   testRadioResult;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, ) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, public loadingCtrl: LoadingController) {
     this.usuarios = db.list('/usuarios');
     console.log(this.usuarios);
   }
@@ -50,9 +50,23 @@ export class HomePage {
             text: 'OK',
             handler: data => {
               if (data == 'a') {
+                let loader = this.loadingCtrl.create({
+                  content: "Ingresando...",
+                  duration: 3000,
+                  dismissOnPageChange: true
+                });
+                loader.present();
+
                 this.navCtrl.push(AulaAPage, { "usuario": this.usuario, "email": this.email });
               }
               else {
+                let loader = this.loadingCtrl.create({
+                  content: "Ingresando...",
+                  duration: 3000,
+                  dismissOnPageChange: true
+                });
+                loader.present();
+
                 this.navCtrl.push(AulaBPage, { "usuario": this.usuario, "email": this.email });
               }
               console.log('Radio data:', data);
