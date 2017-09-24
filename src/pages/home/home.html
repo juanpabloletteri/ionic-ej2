@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="fondo">
 
   <ion-list>
 
@@ -20,11 +20,11 @@
 
   <div *ngIf="esUsuario">
     <ion-item>
-      <ion-input type="text" placeholder="Usuario" [(ngModel)]="usuario" value="admin"></ion-input>
+      <ion-input type="text" placeholder="Usuario" [(ngModel)]="usuario"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="password" placeholder="Password" [(ngModel)]="pass" value="11"></ion-input>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="pass"></ion-input>
     </ion-item>
     <br>
     <button ion-button color="primary" icon-end (click)="login()">
@@ -56,7 +56,17 @@
     <ion-icon name='people'></ion-icon>
       Registrar
   </button>
-
   </div>
+
+  <ion-fab left bottom>
+    <button ion-fab color="secondary"><ion-icon name="arrow-dropright"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button ion-fab (click)="asignarUsuario('admin')">AD</button>
+      <button ion-fab (click)="asignarUsuario('invitado')">IN</button>
+      <button ion-fab (click)="asignarUsuario('usuario')">US</button>
+      <button ion-fab (click)="asignarUsuario('j1')">J1</button>
+      <button ion-fab (click)="asignarUsuario('j2')">J2</button>
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>

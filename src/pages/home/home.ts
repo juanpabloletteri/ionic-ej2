@@ -120,4 +120,33 @@ export class HomePage {
       this.pass = "";
     }*/
   }
+  asignarUsuario(tipo) {
+    switch (tipo) {
+      case "admin": {
+        this.usuario = "admin";
+        this.pass = "11";
+        break;
+      }
+      case "invitado": {
+        this.usuario = "invitado";
+        this.pass = "22";
+        break;
+      }
+      case "usuario": {
+        this.usuario = "usuario";
+        this.pass = "33";
+        break;
+      }
+      case "j1": {
+        this.usuario = "j1";
+        this.pass = "44";
+        break;
+      }
+      case "j2": {
+        this.usuario = "j2";
+        this.pass = "55";
+        break;
+      }
+    }
+  }
 }
