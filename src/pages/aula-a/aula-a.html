@@ -14,15 +14,18 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding > 
 
-  <ion-list>
-    <ion-item *ngFor="let aux of mensajes | async"  (click)="menu(aux.$key, aux.mens)">
-      {{aux.usuario}}: {{aux.mens}}<br>
+    <ion-item *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)">
+      <ion-item *ngIf="usuario == aux.usuario" class="color2">
+          {{aux.usuario}}: {{aux.mens}}<br>
+       </ion-item>
+      <ion-item *ngIf="usuario != aux.usuario" class="color3">
+        {{aux.usuario}}: {{aux.mens}}<br>
+      </ion-item>
     </ion-item>
-  </ion-list>
 
-  <ion-item>
+   <ion-item>
     <ion-label floating>Mensaje</ion-label>
     <ion-input type="text" maxlength="66" [(ngModel)]="mensaje"></ion-input>
   </ion-item>

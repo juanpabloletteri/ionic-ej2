@@ -20,4 +20,28 @@ page-home {
         -webkit-background-size: auto auto;
         background-size: auto auto;
       }
+      .texto{
+        display: inline-block;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        
+        border: 1px solid #b7b7b7;
+        -webkit-border-radius: 11px;
+        border-radius: 11px;
+        font: normal 16px/normal "Lucida Console", Monaco, monospace;
+        color: rgba(0,142,198,1);
+        -o-text-overflow: clip;
+        text-overflow: clip;
+        background: rgba(175,234,214,1);
+        -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+        box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+        text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+        -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        -webkit-transform: rotateX(-23.491269600363754deg) rotateY(15.469860468532229deg)   ;
+        transform: rotateX(-23.491269600363754deg) rotateY(15.469860468532229deg)   ;
+      }
 }

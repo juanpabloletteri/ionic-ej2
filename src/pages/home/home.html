@@ -16,17 +16,17 @@
       <ion-toggle value="foo" checked="true" [(ngModel)]="esUsuario"></ion-toggle>
     </ion-item>
 
-  </ion-list>
+  </ion-list><br><br>
 
   <div *ngIf="esUsuario">
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="text" placeholder="Usuario" [(ngModel)]="usuario"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="password" placeholder="Password" [(ngModel)]="pass"></ion-input>
     </ion-item>
-    <br>
+    <br><br><br>
     <button ion-button color="primary" icon-end (click)="login()">
     Ingresar
     <ion-icon name='arrow-forward'></ion-icon>
@@ -36,22 +36,22 @@
 
   <div *ngIf="!esUsuario">
 
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="text" placeholder="Usuario" [(ngModel)]="usuario"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="password" placeholder="Password" [(ngModel)]="pass1"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="texto">
       <ion-input type="password" placeholder="Confirme su Password" [(ngModel)]="pass2"></ion-input>
     </ion-item>
-    <br>
+    <br><br><br>
     <button ion-button color="secondary" icon-start>
     <ion-icon name='people'></ion-icon>
       Registrar
