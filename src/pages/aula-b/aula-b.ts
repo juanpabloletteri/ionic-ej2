@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ActionSheetController, AlertController, Content } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -23,13 +23,24 @@ export class AulaBPage {
   mensaje: string;
   mensajes: FirebaseListObservable<any>;
 
+  @ViewChild(Content) content: Content;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController) {
     this.usuario = this.navParams.get('usuario');
     this.email = this.navParams.get('email');
 
     this.mensajes = db.list('/mensajesB');
   }
-
+  //////////para ir al fondo de la pantalla
+  ionViewDidLoad() {
+    let dimensions = this.content.getContentDimensions();
+    this.content.scrollTo(0, dimensions.scrollHeight + 100, 100);
+  }
+  ionViewDidEnter() {
+    let dimensions = this.content.getContentDimensions();
+    this.content.scrollTo(0, dimensions.contentHeight + 100, 100);
+  }
+  //////////////////
   enviarMensaje() {
     if (this.mensaje != null) {
       this.mensajes.push({ usuario: this.usuario, mens: this.mensaje });
@@ -74,8 +85,5 @@ export class AulaBPage {
     this.navCtrl.pop();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AulaAPage');
-  }
 
 }
