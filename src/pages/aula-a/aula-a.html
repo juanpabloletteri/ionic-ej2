@@ -16,7 +16,10 @@
 
 <ion-content padding>
 
-  <ion-item *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)">
+  <ion-item *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)" class="hora">
+
+    <ion-item class="hora">{{aux.hora}}</ion-item>
+
     <ion-item *ngIf="usuario == aux.usuario" class="color2">
       {{aux.usuario}}: {{aux.mens}}<br>
     </ion-item>

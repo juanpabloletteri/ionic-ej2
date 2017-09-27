@@ -54,4 +54,17 @@ page-aula-a {
         -webkit-background-size: auto auto;
         background-size: auto auto;
     }
+    .hora{
+        text-align: center;
+        margin: -11px;
+        padding: -11px;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        border: none;
+        font: normal 11px/1 "Lucida Console", Monaco, monospace;
+        color: black;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
 }

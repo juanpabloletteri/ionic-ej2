@@ -42,8 +42,9 @@ export class AulaAPage {
   }
   //////////////////
   enviarMensaje() {
-    if (this.mensaje != null) {
-      this.mensajes.push({ usuario: this.usuario, mens: this.mensaje });
+    if (this.mensaje != null && this.mensaje != "") {
+      var hora = new Date();
+      this.mensajes.push({ usuario: this.usuario, mens: this.mensaje, hora: (hora.getHours() + ":" + hora.getMinutes()) });
       this.mensaje = "";
     }
     else {
@@ -84,7 +85,5 @@ export class AulaAPage {
   salir() {
     this.navCtrl.pop();
   }
-
-
 
 }
