@@ -31,7 +31,7 @@ export class HomePage {
   }
   login() {
     this.usuarios.forEach(element => {
-      for (var i = 0; i < 5; i++) {
+      for (let i in element) {
         if (element[i].nombre == this.usuario && element[i].clave == this.pass) {
           //SE ENCONTRO USUARIO
           let alert = this.alertCtrl.create();
