@@ -34,11 +34,11 @@ export class AulaAPage {
   //////////para ir al fondo de la pantalla
   ionViewDidLoad() {
     let dimensions = this.content.getContentDimensions();
-    this.content.scrollTo(0, dimensions.scrollHeight + 100, 100);
+    this.content.scrollTo(100, dimensions.scrollHeight + 1000, 100);
   }
   ionViewDidEnter() {
     let dimensions = this.content.getContentDimensions();
-    this.content.scrollTo(0, dimensions.contentHeight + 100, 100);
+    this.content.scrollTo(100, dimensions.contentHeight + 1000, 100);
   }
   //////////////////
   enviarMensaje() {
