@@ -16,23 +16,24 @@
 
 <ion-content padding>
 
-  <ion-item *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)" class="hora">
+  <ion-item no-lines *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)" class="hora">
 
-    <ion-item class="hora">{{aux.hora}}</ion-item>
+    <ion-item no-lines  class="hora">{{aux.hora}}</ion-item>
 
-    <ion-item *ngIf="usuario == aux.usuario" class="color2">
+    <ion-item no-lines  *ngIf="usuario == aux.usuario" class="color2">
       {{aux.usuario}}: {{aux.mens}}<br>
     </ion-item>
-    <ion-item *ngIf="usuario != aux.usuario" class="color3">
+    <ion-item no-lines  *ngIf="usuario != aux.usuario" class="color3">
       {{aux.usuario}}: {{aux.mens}}<br>
     </ion-item>
   </ion-item>
+</ion-content>
 
+<ion-footer>
   <ion-item>
     <ion-label floating>Mensaje</ion-label>
     <ion-input type="text" maxlength="66" [(ngModel)]="mensaje"></ion-input>
   </ion-item>
   <br>
   <button ion-button color="secondary" round (click)="enviarMensaje()">Enviar Mensaje</button>
-
-</ion-content>
+</ion-footer>
