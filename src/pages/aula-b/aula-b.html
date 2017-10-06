@@ -4,27 +4,31 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header><br><br>
+<ion-header>
+  <br>
+  <br>
   <ion-title>Aula-B {{usuario}}</ion-title>
   <ion-buttons end>
     <button ion-button icon-only (click)="salir()">
-        <ion-icon name="exit"></ion-icon>
-      </button>
+      <ion-icon name="exit"></ion-icon>
+    </button>
   </ion-buttons>
 </ion-header>
 
 
 <ion-content padding>
 
-  <ion-item  no-lines *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)" class="hora">
+  <ion-item no-lines *ngFor="let aux of mensajes | async" (click)="menu(aux.$key, aux.mens)" class="hora">
 
-    <ion-item  no-lines class="hora">{{aux.hora}}</ion-item>
+    <ion-item no-lines class="hora">{{aux.hora}}</ion-item>
 
-    <ion-item no-lines  *ngIf="usuario == aux.usuario" class="color2">
-      {{aux.usuario}}: {{aux.mens}}<br>
+    <ion-item no-lines *ngIf="usuario == aux.usuario" class="color2">
+      {{aux.mens}}
+      <br>
     </ion-item>
-    <ion-item  no-lines *ngIf="usuario != aux.usuario" class="color3">
-      {{aux.usuario}}: {{aux.mens}}<br>
+    <ion-item no-lines *ngIf="usuario != aux.usuario" class="color3">
+      {{aux.usuario}}: {{aux.mens}}
+      <br>
     </ion-item>
   </ion-item>
 

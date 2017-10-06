@@ -46,6 +46,8 @@ export class AulaAPage {
       var hora = new Date();
       this.mensajes.push({ usuario: this.usuario, mens: this.mensaje, hora: (hora.getHours() + ":" + hora.getMinutes()) });
       this.mensaje = "";
+      let dimensions = this.content.getContentDimensions();
+      this.content.scrollTo(100, dimensions.contentHeight + 1000, 100);
     }
     else {
       let alert = this.alertCtrl.create({
